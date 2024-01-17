@@ -1,4 +1,5 @@
 ### Kortų žaidimas "KARAS":
+
 import random
 
 class Card:
@@ -115,20 +116,41 @@ def print_decks(player1_hand, player2_hand):
     print(f"Player 2 Hand: {len(player2_hand.cards)} cards")
 
 def main():
-    print("Welcome To Main WarGame Card Menu")
+    print('''
+-------------------- Welcome To Main WarGame Card Menu --------------------
+
+            .-. . .-.  .--.  .----.  .---.  .--.  .-.   .-..----.
+            | |/ \| | / {} \ | {}  }/  __} / {} \ |  `.'  || {_  
+            |  .'.  |/  /\  \| .-. \\  {_ }/  /\  \| |\ /| || {__
+            `-'   `-'`-'  `-'`-' `-' `---'`-'  `-'`-' ` `-'`----'
+          
+
+                          1. Play the next round
+          
+                             2. Display hands
+          
+                                 3. Quit
+       
+---------------------------------------------------------------------------
+              ''')
+
+
+
+
+
     player1_hand, player2_hand = initialize_hands()
 
     while True:
-        user_input = input("\n1. Play the next round.\n2. Display hands.\n3. Quit.\nChoose your action: ")
+        choice = input("Select the menu item you would like to do: ")
 
-        if user_input == '1':
+        if choice == '1':
             table_cards = play_war(player1_hand, player2_hand)
             if table_cards:
                 print(f"\nTable cards: {[card.sign for card in table_cards]}")
-        elif user_input == '3':
+        elif choice == '3':
             print("\nThanks for playing! Goodbye!")
             break
-        elif user_input == '2':
+        elif choice == '2':
             print_decks(player1_hand, player2_hand)
         else:
             print("Wrong choice. Please select the correct menu item!")
